@@ -132,3 +132,14 @@
     @apply font-sans;
   }
 }
+
+/* The Storyblok bridge outlines every editable element on mouse-move (via the
+   `.storyblok--outlined` class) and clears it on a delay — noisy in a dense tree
+   that already has its own hover + focus styles. Neutralize the bridge outline;
+   click-to-select and the separate selection overlay are unaffected. */
+.storyblok--outlined [data-blok-c],
+.storyblok--outlined .storyblok__outline,
+.storyblok--outlined [data-blok-c][data-blok-focused="true"] {
+  outline: none !important;
+  box-shadow: none !important;
+}
